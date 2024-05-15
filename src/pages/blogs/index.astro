@@ -1,11 +1,19 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import BlogCard from "../../components/BlogCard.astro";
 
-
+const allBlogs: CollectionEntry<"blog">[] = (await getCollection("blog")).sort(
+  (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
+    b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
 ---
 
-<BaseLayout>
- <section>
-  Blogs
- </section>
+<BaseLayout pageTitle="Blogs">
+  <section class="min-h-screen flex justify-center items-center">
+    <div class="flex flex-col gap-16">
+      {allBlogs.map((blog) => <BlogCard blog={blog} />)}
+    </div>
+  </section>
 </BaseLayout>

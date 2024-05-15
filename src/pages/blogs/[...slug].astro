@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getEntry } from "astro:content";
+//get slug
+const { slug } = Astro.params;
+// error check for slug
+if (slug === undefined) {
+  throw new Error("slug is required");
+}
+//get entry
+const entry = await getEntry("blog", slug);
+//check entry
+if (entry === undefined) {
+  return Astro.redirect("/404");
+}
+//get content
+const { Content } = await entry.render();
+---
+
+<BaseLayout>
+  <section>
+    <a href="/blogs">back</a>
+    <article><Content /></article>
+  </section>
+</BaseLayout>

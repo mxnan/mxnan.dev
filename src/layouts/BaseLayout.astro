@@ -1,21 +1,28 @@
 ---
+const { pageTitle } = Astro.props;
+import { SITE_TITLE, SITE_DESCRIPTION } from "../constants";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
 
+interface Props {
+  pageTitle?: string;
+}
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>{pageTitle} -- {SITE_TITLE}</title>
+    <meta name="description" content={SITE_DESCRIPTION} />
   </head>
-  <body class="bg-zinc-800 text-stone-200">
-    <header>header</header>
+  <body class="bg-zinc-900 text-stone-200 max-w-3xl mx-auto">
+    <Navbar />
     <main>
       <slot />
     </main>
-    <footer>footer</footer>
+    <Footer />
   </body>
 </html>
