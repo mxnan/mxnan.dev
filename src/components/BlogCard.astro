@@ -1,0 +1,19 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { formattedDate } from "../utils";
+
+const { blog } = Astro.props;
+
+interface Props {
+  blog: CollectionEntry<"blog">;
+}
+---
+
+<div class="h-full w-full">
+  <p>{blog.data.title}</p>
+  <p>{formattedDate(blog.data.pubDate)}</p>
+  <p>{blog.data.description}</p>
+  <p>{blog.data.author}</p>
+  <p>{blog.data.ogimage}</p>
+  <a href={`/blogs/${blog.slug}`}>link</a>
+</div>
