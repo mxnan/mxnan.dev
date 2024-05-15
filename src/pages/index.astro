@@ -1,11 +1,19 @@
 ---
+// Import the necessary interfaces
+import type { MarkdownInstance } from "astro";
+import type { Frontmatter } from "../constants";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-
+// Define the frontmatter for this page
+const frontmatter: MarkdownInstance<Frontmatter>["frontmatter"] = {
+  title: "Home Page",
+  description: "Home page for mxnan.dev",
+  ogImage: "/og/og.jpg",
+  author: "@mxnan",
+};
 ---
 
-<BaseLayout pageTitle="Home">
- <section class="">
-  Home
- </section>
+{/* Render the BaseLayout component and pass the required props */}
+<BaseLayout pageTitle="Home" frontmatter={frontmatter}>
+  <section class="container mx-auto py-8">Home</section>
 </BaseLayout>

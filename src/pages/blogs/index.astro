@@ -1,8 +1,18 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import type { Frontmatter } from "../../constants";
+import type { MarkdownInstance } from "astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import BlogCard from "../../components/BlogCard.astro";
+
+// Define the frontmatter for this page
+const frontmatter: MarkdownInstance<Frontmatter>["frontmatter"] = {
+  title: "Blogs Page",
+  description: "Blogs Page for mxnan.dev",
+  ogImage: "/og/og.jpg",
+  author: "@mxnan",
+};
 
 const allBlogs: CollectionEntry<"blog">[] = (await getCollection("blog")).sort(
   (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
@@ -10,7 +20,7 @@ const allBlogs: CollectionEntry<"blog">[] = (await getCollection("blog")).sort(
 );
 ---
 
-<BaseLayout pageTitle="Blogs">
+<BaseLayout pageTitle="Blogs" frontmatter={frontmatter}>
   <section class="min-h-screen flex justify-center items-center">
     <div class="flex flex-col gap-16">
       {allBlogs.map((blog) => <BlogCard blog={blog} />)}

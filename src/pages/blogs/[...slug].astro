@@ -1,6 +1,9 @@
 ---
+import type { MarkdownInstance } from "astro";
+import type { Frontmatter } from "../../constants";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getEntry } from "astro:content";
+
 //get slug
 const { slug } = Astro.params;
 // error check for slug
@@ -15,11 +18,19 @@ if (entry === undefined) {
 }
 //get content
 const { Content } = await entry.render();
+
+// Define the frontmatter for this page
+const frontmatter: MarkdownInstance<Frontmatter>["frontmatter"] = {
+  title: entry.data.title,
+  description: entry.data.description,
+  ogImage: entry.data.ogimage,
+  author: entry.data.author,
+};
 ---
 
-<BaseLayout>
+<BaseLayout pageTitle={entry.data.title} frontmatter={frontmatter}>
   <section>
     <a href="/blogs">back</a>
-    <article><Content /></article>
+    <article class="prose"><Content /></article>
   </section>
 </BaseLayout>
