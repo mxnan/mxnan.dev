@@ -2,8 +2,12 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
+import { formattedDate } from "../../utils";
 
-const allBlogs: CollectionEntry<"blog">[] = await getCollection("blog");
+const allBlogs: CollectionEntry<"blog">[] = (await getCollection("blog")).sort(
+  (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
+    b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
 ---
 
 <BaseLayout pageTitle="Blogs">
@@ -13,7 +17,7 @@ const allBlogs: CollectionEntry<"blog">[] = await getCollection("blog");
         allBlogs.map((blog) => (
           <div class="h-full w-full">
             <p>{blog.data.title}</p>
-            <p>{blog.data.pubDate}</p>
+            <p>{formattedDate(blog.data.pubDate)}</p>
             <p>{blog.data.description}</p>
             <p>{blog.data.author}</p>
             <p>{blog.data.ogimage}</p>
