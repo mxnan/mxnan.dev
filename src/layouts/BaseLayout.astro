@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import type { MarkdownInstance } from "astro";
 import type { Frontmatter } from "../constants";
+import { ViewTransitions } from "astro:transitions";
 
 // Define an interface for the component props
 interface Props {
@@ -17,7 +18,7 @@ interface Props {
 const { pageTitle } = Astro.props;
 const { frontmatter } = Astro.props;
 
-// Safely destructure the frontmatter properties
+//  Destructure the frontmatter properties
 const { title, description, ogImage, author } = frontmatter ?? {};
 ---
 
@@ -40,11 +41,14 @@ const { title, description, ogImage, author } = frontmatter ?? {};
           <meta property="og:author" content={author} />
         </>
       )
-    }</head
-  >
-  <body class="bg-zinc-900 text-stone-200 max-w-3xl mx-auto">
+    }
+    {/* Enable View Transitions */}
+    <ViewTransitions />
+  </head>
+  <body class="bg-zinc-900 text-stone-200
+   max-w-2xl mx-auto p-5 space-y-24">
     <Navbar />
-    <main>
+    <main class="">
       <slot />
     </main>
     <Footer />

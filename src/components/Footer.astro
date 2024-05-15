@@ -1,5 +1,42 @@
 ---
-
+import { SiteLinksData, SocialLinksData } from "../constants";
 ---
 
-<footer>footer</footer>
+<footer class="relative pb-24">
+  <div
+    class="relative flex-1 flex justify-center font-title text-base gap-12 lg:gap-24"
+  >
+    <ul class="space-y-3">
+      {
+        SiteLinksData.map(([name, link]: [string, string]) => (
+          <li class=" w-min pb-4 hover:bg-[url('/icons/custom-underline.svg')]">
+            <a href={link} class="p-1 ">
+              {name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <ul>
+      <span
+        class="absolute left-1/2 -translate-x-1/2 h-full w-[1px] bg-sky-500 text-3xl"
+      ></span>
+    </ul>
+    <ul class="space-y-3">
+      {
+        SocialLinksData.map(([name, link]: [string, string]) => (
+          <li class=" w-min pb-4 hover:bg-[url('/icons/custom-underline.svg')]">
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              class="p-1"
+              href={link}
+            >
+              {name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</footer>
