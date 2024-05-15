@@ -1,10 +1,11 @@
 ---
+import "../styles/globals.css";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../constants";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import type { MarkdownInstance } from "astro";
 import type { Frontmatter } from "../constants";
-import { ViewTransitions } from "astro:transitions";
+import { ViewTransitions, fade } from "astro:transitions";
 
 // Define an interface for the component props
 interface Props {
@@ -45,10 +46,10 @@ const { title, description, ogImage, author } = frontmatter ?? {};
     {/* Enable View Transitions */}
     <ViewTransitions />
   </head>
-  <body class="bg-zinc-900 text-stone-200
+  <body class="font-body
    max-w-2xl mx-auto p-5 space-y-24">
     <Navbar />
-    <main class="">
+    <main class="py-4" transition:animate={fade({ duration: 475 })}>
       <slot />
     </main>
     <Footer />
