@@ -1,0 +1,15 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface BlockquoteProps extends HTMLAttributes<"blockquote"> {
+  blockquote: string;
+}
+
+const props = Astro.props as BlockquoteProps;
+---
+
+<blockquote {...props} class="flex items-center gap-6 border-emerald-500">
+  <span class="text-4xl text-emerald-500 mb-2">“</span>
+  <span class="text-xl font-semibold text-sky-500"><slot /></span>
+  <span class="text-4xl text-emerald-500">”</span>
+</blockquote>

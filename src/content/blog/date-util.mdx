@@ -1,0 +1,61 @@
+---
+title: "Date function"
+description: "Just a simple function to get formatted date using system time"
+pubDate: 2024-05-11
+ogimage: "/og/og.jpg"
+author: "@mxnan"
+slug: date-util
+---
+
+# Usage
+
+In my case, date is coming from entry, you can customize this.
+
+```tsx
+<p class="">{formattedDate(entry.data.pubDate)}</p>
+```
+
+#### Get Formatted Date in text
+
+1. A simple function to convert date to text format.
+
+2. Using in astro project , so date is received in string format like.
+
+> 2024-05-11T00:00:00.000Z.
+
+3. Using built in features, no extra package like dayjs.
+
+# Example
+
+Using in this website. Feel free to use and modify the code.
+
+Store function in a global file to reuse.
+
+> src/utils.ts
+
+```tsx
+//get formatted time
+const formattedDate = (date: Date) => {
+  const now = new Date();
+  const diffMilliseconds = now.getTime() - date.getTime();
+
+  const diffDays = Math.floor(diffMilliseconds / (1000 * 60 * 60 * 24));
+  const diffWeeks = Math.floor(diffDays / 7);
+  const diffMonths = Math.floor(diffDays / 30.436875);
+  const diffYears = Math.floor(diffMonths / 12);
+
+  if (diffYears >= 1) {
+    return `${diffYears} year${diffYears > 1 ? "s" : ""} ago`;
+  } else if (diffMonths >= 1) {
+    return `${diffMonths} month${diffMonths > 1 ? "s" : ""} ago`;
+  } else if (diffWeeks >= 1) {
+    return `${diffWeeks} week${diffWeeks > 1 ? "s" : ""} ago`;
+  } else if (diffDays >= 1) {
+    return `${diffDays} day${diffDays > 1 ? "s" : ""} ago`;
+  } else {
+    return "Today";
+  }
+};
+export { formattedDate };
+```
+***
