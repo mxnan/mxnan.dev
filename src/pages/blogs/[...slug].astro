@@ -23,7 +23,8 @@ if (entry === undefined) {
 }
 //get content
 const { Content } = await entry.render();
-//above logic for getting content SSR
+//above logic for getting content using SSR
+
 // Define the frontmatter for this page
 const frontmatter: MarkdownInstance<Frontmatter>["frontmatter"] = {
   title: entry.data.title,
