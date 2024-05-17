@@ -99,7 +99,11 @@ const frontmatter: MarkdownInstance<Frontmatter>["frontmatter"] = {
       </div>
     </div>
     {/* Blog content section */}
-    <article class="max-w-2xl max-sm:px-2 prose prose-slate prose-invert prose-base">
+    <article
+      class="max-w-2xl max-sm:px-2 prose prose-slate prose-invert prose-base
+       prose-headings:text-sky-500
+       prose-a:text-emerald-400"
+    >
       <Content components={components} />
     </article>
   </section>

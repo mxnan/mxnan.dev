@@ -28,7 +28,10 @@ const { title, description, ogImage, author } = frontmatter ?? {};
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <link rel="stylesheet" href="src/globals.css" />
+    {/* style for font  */}
+    <style is:global>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+    </style>
     {/* Render the page title dynamically */}
     <title>{pageTitle ? `${pageTitle} | ${SITE_TITLE}` : SITE_TITLE}</title>
     <meta name="description" content={SITE_DESCRIPTION} />
@@ -46,8 +49,10 @@ const { title, description, ogImage, author } = frontmatter ?? {};
     {/* Enable View Transitions */}
     <ViewTransitions />
   </head>
-  <body class="font-body
-   max-w-2xl mx-auto p-5 space-y-24">
+  <body
+    class="bg-zinc-800 text-slate-200 font-sans
+   max-w-2xl mx-auto p-5 space-y-24"
+  >
     <Navbar />
     <main class="py-4" transition:animate={fade({ duration: 475 })}>
       <slot />
