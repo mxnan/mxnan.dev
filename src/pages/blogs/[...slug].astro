@@ -42,12 +42,12 @@ const frontmatter: MarkdownInstance<Frontmatter>["frontmatter"] = {
       <a
         href="/blogs"
         class="absolute max-lg:-left-2 max-lg:-top-8
-       -left-32 flex justify-end
+       -left-32 flex justify-end max-sm:justify-start
        items-center gap-4
        p-2 rounded-xl shadow-sm w-20"
       >
         <span
-          class="group-hover:opacity-0 transition-opacity ease-linear duration-500"
+          class="group-hover:opacity-0 max-sm:hidden transition-opacity ease-linear duration-500"
           >Back
         </span>
         <img
@@ -99,7 +99,7 @@ const frontmatter: MarkdownInstance<Frontmatter>["frontmatter"] = {
       </div>
     </div>
     {/* Blog content section */}
-    <article class="max-w-2xl prose prose-slate prose-invert prose-base">
+    <article class="max-w-2xl max-sm:px-2 prose prose-slate prose-invert prose-base">
       <Content components={components} />
     </article>
   </section>

@@ -3,7 +3,7 @@ import type { CollectionEntry } from "astro:content";
 import { formattedDate } from "../utils";
 
 const { blog } = Astro.props;
-//<img src={blog.data.ogimage} alt="og-image" />
+//use blog image like this  <img src={blog.data.ogimage} alt="og-image" />
 interface Props {
   blog: CollectionEntry<"blog">;
 }
@@ -14,17 +14,19 @@ interface Props {
      pt-8 pb-12 relative border-sky-800"
   href={`/blogs/${blog.slug}`}
 >
+  {/* animating bottom line */}
   <span
     class="absolute bottom-0 left-0
     h-[0.3px] bg-sky-800 group-hover:translate-x-[550px]
     transition-all duration-700 ease-out
-     max-w-md group-hover:max-w-[100px] w-full"
+     max-sm:max-w-xs sm:max-w-md group-hover:max-w-[100px] w-full"
   ></span>
+  {/* Blog details section */}
   <div class="space-y-4 w-full max-w-md">
     <p class="text-3xl font-title uppercase font-semibold">{blog.data.title}</p>
     <p class="text-base font-light text-zinc-200">{blog.data.description}</p>
   </div>
-  <div class="flex flex-col gap-3 justify-start items-start">
+  <div class="flex flex-col mt-3 gap-3 justify-center items-start">
     <img
       src="/icons/circle-forward.svg"
       alt="visit-link"
@@ -32,7 +34,7 @@ interface Props {
       class="group-hover:scale-125 group-hover:translate-x-12 transition-transform ease-out duration-700"
     />
     <p
-      class="whitespace-nowrap text-sm group-hover:font-medium group-hover:text-base group-hover:text-sky-500 transition-all ease-out duration-700"
+      class="whitespace-nowrap max-sm:hidden text-sm group-hover:font-medium group-hover:text-base group-hover:text-sky-500 transition-all ease-out duration-700"
     >
       {formattedDate(blog.data.pubDate)}
     </p>
