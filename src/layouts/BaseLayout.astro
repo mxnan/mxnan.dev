@@ -30,7 +30,7 @@ const { title, description, ogImage, author } = frontmatter ?? {};
     <meta name="generator" content={Astro.generator} />
     {/* style for font  */}
     <style is:global>
-      /* Register your custom font family and tell the browser where to find it. */
+      /* Define title font */
       @font-face {
         font-family: "Orbitron";
         src: url("/fonts/orbitron.ttf") format("truetype");
@@ -38,6 +38,7 @@ const { title, description, ogImage, author } = frontmatter ?? {};
         font-style: normal;
         font-display: swap;
       }
+      /* Define body font */
       @font-face {
         font-family: "RedditSans";
         src: url("/fonts/reddit-sans.ttf") format("truetype");
