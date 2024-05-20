@@ -10,7 +10,7 @@ import { SiteLinksData, SocialLinksData } from "../constants";
       {
         SiteLinksData.map(([name, link]: [string, string]) => (
           <li class=" w-min pb-4 hover:bg-[url('/icons/custom-underline.svg')]">
-            <a href={link} class="p-1 ">
+            <a href={link} class="p-1 text-emerald-400 ">
               {name}
             </a>
           </li>
@@ -29,7 +29,7 @@ import { SiteLinksData, SocialLinksData } from "../constants";
             <a
               target="_blank"
               rel="noopener noreferrer"
-              class="p-1"
+              class="p-1 text-emerald-400 "
               href={link}
             >
               {name}
