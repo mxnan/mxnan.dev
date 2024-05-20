@@ -6,7 +6,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Montserrat", ...defaultTheme.fontFamily.sans],
+        title: ["Orbitron", ...defaultTheme.fontFamily.sans],
+        body: ["RedditSans", ...defaultTheme.fontFamily.sans],
       },
     },
   },

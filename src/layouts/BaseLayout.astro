@@ -30,7 +30,21 @@ const { title, description, ogImage, author } = frontmatter ?? {};
     <meta name="generator" content={Astro.generator} />
     {/* style for font  */}
     <style is:global>
-      @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+      /* Register your custom font family and tell the browser where to find it. */
+      @font-face {
+        font-family: "Orbitron";
+        src: url("/fonts/orbitron.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "RedditSans";
+        src: url("/fonts/reddit-sans.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
     </style>
     {/* Render the page title dynamically */}
     <title>{pageTitle ? `${pageTitle} | ${SITE_TITLE}` : SITE_TITLE}</title>
@@ -50,7 +64,7 @@ const { title, description, ogImage, author } = frontmatter ?? {};
     <ViewTransitions />
   </head>
   <body
-    class="bg-zinc-800 text-slate-200 font-sans
+    class="bg-zinc-800 text-slate-200 font-body
    max-w-2xl mx-auto p-5 space-y-24"
   >
     <Navbar />
