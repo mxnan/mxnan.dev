@@ -46,6 +46,20 @@ const { title, description, ogImage, author } = frontmatter ?? {};
         font-style: normal;
         font-display: swap;
       }
+      /* Custom scrollbar */
+      ::-webkit-scrollbar-thumb {
+        @apply bg-emerald-700;
+      }
+      ::-webkit-scrollbar-track {
+        @apply bg-stone-200 ;
+      }
+      ::-webkit-scrollbar {
+        @apply w-2 h-2 rounded-xl;
+      }
+      ::-webkit-scrollbar-button {
+        @apply bg-sky-700 ;
+      }
+      /* Custom scrollbar */
     </style>
     {/* Render the page title dynamically */}
     <title>{pageTitle ? `${pageTitle} | ${SITE_TITLE}` : SITE_TITLE}</title>

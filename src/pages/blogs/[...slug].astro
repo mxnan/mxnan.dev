@@ -67,7 +67,7 @@ const frontmatter: MarkdownInstance<Frontmatter>["frontmatter"] = {
       ></span>
       {/* Blog details */}
       <div class="max-w-sm space-y-6 pr-4">
-        <h1 class="text-5xl font-bold uppercase text-emerald-500">
+        <h1 class="text-5xl font-bold font-title uppercase text-emerald-500">
           {entry.data.title}
         </h1>
         <p class="text-base">{entry.data.description}</p>
@@ -102,7 +102,7 @@ const frontmatter: MarkdownInstance<Frontmatter>["frontmatter"] = {
     {/* Blog content section */}
     <article
       class="max-w-2xl max-sm:px-2 prose prose-slate prose-invert prose-base
-       prose-headings:text-sky-500
+       prose-headings:text-sky-500 prose-headings:font-title
        prose-a:text-emerald-400"
     >
       <Content components={components} />
