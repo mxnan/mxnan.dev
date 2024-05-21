@@ -11,7 +11,7 @@ interface Props {
 
 <a
   class="flex justify-between items-start group
-     pt-8 pb-12 relative border-skyblue"
+     pt-8 pb-10 relative border-skyblue"
   href={`/blogs/${blog.slug}`}
 >
   {/* animating bottom line */}
@@ -23,15 +23,15 @@ interface Props {
   ></span>
   {/* Blog details section */}
   <div class="space-y-4 w-full max-w-md">
-    <p class="text-3xl font-title text-greenemerald uppercase font-semibold">{blog.data.title}</p>
-    <p class="text-base max-sm:hidden font-light text-zinc-200">{blog.data.description}</p>
+    <p class="text-2xl font-title text-greenemerald uppercase font-semibold">{blog.data.title}</p>
+    <p class="text-sm max-sm:hidden font-light text-zinc-200">{blog.data.description}</p>
   </div>
   <div class="flex flex-col max-sm:mt-4 gap-3 justify-center items-start">
     <img
-      src="/icons/circle-forward.svg"
+      src="/icons/arrow-up-right.svg"
       alt="visit-link"
       aria-label="visit-link"
-      class="group-hover:scale-125 group-hover:translate-x-12 transition-transform ease-out duration-700"
+      class="group-hover:scale-125 group-hover:rotate-45 group-hover:translate-x-12 transition-transform ease-out duration-700"
     />
     <p
       class="whitespace-nowrap max-sm:hidden text-sm group-hover:font-medium group-hover:text-base group-hover:text-greenemerald transition-all ease-out duration-700"

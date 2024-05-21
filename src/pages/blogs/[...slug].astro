@@ -47,13 +47,13 @@ const frontmatter: MarkdownInstance<Frontmatter>["frontmatter"] = {
        p-2 rounded-xl shadow-sm w-20"
       >
         <span
-          class="group-hover:opacity-0 max-sm:hidden transition-opacity ease-linear duration-500"
+          class="text-sm group-hover:opacity-0 max-sm:hidden transition-opacity ease-linear duration-500"
           >Back
         </span>
         <img
-          src="/icons/circle-back.svg"
+          src="/icons/arrow-up-left.svg"
           alt="back"
-          class="group-hover:-translate-x-4 group-hover:scale-125 transition-transform ease-in-out duration-1000"
+          class="group-hover:-translate-x-4 group-hover:-rotate-45 group-hover:scale-125 transition-transform ease-in-out duration-1000"
         />
       </a>
       {/* animating bottom line */}
@@ -67,10 +67,10 @@ const frontmatter: MarkdownInstance<Frontmatter>["frontmatter"] = {
       ></span>
       {/* Blog details */}
       <div class="max-w-sm space-y-6 pr-4">
-        <h1 class="text-5xl font-bold font-title uppercase text-greenemerald">
+        <h1 class="text-4xl font-bold font-title uppercase text-greenemerald">
           {entry.data.title}
         </h1>
-        <p class="text-base">{entry.data.description}</p>
+        <p class="text-sm">{entry.data.description}</p>
       </div>
       {/* Blog image section */}
       <div class="flex flex-col items-end gap-3">
