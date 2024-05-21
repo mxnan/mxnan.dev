@@ -4,7 +4,12 @@ import defaultTheme from "tailwindcss/defaultTheme";
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
+   
     extend: {
+      colors: {
+        skyblue: "#5465ff",
+        greenemerald: "#52B788",
+      },
       fontFamily: {
         title: ["Orbitron", ...defaultTheme.fontFamily.sans],
         body: ["RedditSans", ...defaultTheme.fontFamily.sans],

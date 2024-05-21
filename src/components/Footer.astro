@@ -10,7 +10,7 @@ import { SiteLinksData, SocialLinksData } from "../constants";
       {
         SiteLinksData.map(([name, link]: [string, string]) => (
           <li class=" w-min pb-4 hover:bg-[url('/icons/custom-underline.svg')] group">
-            <a href={link} class="p-1 flex gap-2 text-emerald-400 ">
+            <a href={link} class="p-1 flex gap-2 text-greenemerald ">
               {name} <img src="/icons/arrow-up-right.svg" alt="arrow" class="group-hover:rotate-12" />
             </a>
           </li>
@@ -29,7 +29,7 @@ import { SiteLinksData, SocialLinksData } from "../constants";
             <a
               target="_blank"
               rel="noopener noreferrer"
-              class="p-1 flex gap-2 text-emerald-400 "
+              class="p-1 flex gap-2 text-greenemerald "
               href={link}
             >
               {name} <img src="/icons/arrow-up-right.svg" alt="arrow" class="group-hover:rotate-12" />
@@ -43,7 +43,7 @@ import { SiteLinksData, SocialLinksData } from "../constants";
     class="flex items-center gap-2 font-title text-sm absolute bottom-6 left-1/2 -translate-x-1/2"
   >
     Developed by <a
-      class="text-emerald-400 font-body rounded-xl py-1 px-2 border border-sky-600 shadow-md shadow-emerald-500"
+      class="text-greenemerald font-body rounded-xl py-1 px-2 border border-skyblue shadow-md shadow-greenemerald"
       target="_blank"
       rel="noopener noreferrer"
       href="https://github.com/mxnan">@mxnan</a

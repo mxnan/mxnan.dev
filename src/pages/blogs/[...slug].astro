@@ -61,13 +61,13 @@ const frontmatter: MarkdownInstance<Frontmatter>["frontmatter"] = {
         class="absolute bottom-0
         animate-pulse
         left-1/2 -translate-x-1/2
-      h-[0.3px] bg-sky-600
+      h-[0.3px] bg-skyblue
       transition-all duration-1000 ease-in-out
        max-w-xl group-hover:max-w-[100px] w-full"
       ></span>
       {/* Blog details */}
       <div class="max-w-sm space-y-6 pr-4">
-        <h1 class="text-5xl font-bold font-title uppercase text-emerald-500">
+        <h1 class="text-5xl font-bold font-title uppercase text-greenemerald">
           {entry.data.title}
         </h1>
         <p class="text-base">{entry.data.description}</p>
@@ -78,7 +78,7 @@ const frontmatter: MarkdownInstance<Frontmatter>["frontmatter"] = {
           src={`${entry.data.ogimage}`}
           alt="ogimage"
           class="sm:w-44 max-sm:w-20 h-16 rounded-lg
-    shadow-md group-hover:shadow-emerald-600
+    shadow-md group-hover:shadow-greenemerald
      transition-shadow duration-700 ease-out"
         />
 
@@ -91,7 +91,7 @@ const frontmatter: MarkdownInstance<Frontmatter>["frontmatter"] = {
           <p class="">{formattedDate(entry.data.pubDate)}</p>
           <p class="max-sm:hidden">|</p>
           <a
-            class="hover:underline underline-offset-4 text-emerald-600"
+            class="hover:underline underline-offset-4 text-greenemerald"
             target="_blank"
             rel="noopener noreferrer"
             href="https://github.com/mxnan">{entry.data.author}</a
@@ -101,9 +101,9 @@ const frontmatter: MarkdownInstance<Frontmatter>["frontmatter"] = {
     </div>
     {/* Blog content section */}
     <article
-      class="max-w-2xl max-sm:px-2 prose prose-slate prose-invert prose-base
-       prose-headings:text-sky-500 prose-headings:font-title
-       prose-a:text-emerald-400"
+      class="max-w-2xl max-sm:px-2 prose prose-slate prose-invert prose-sm
+       prose-headings:text-skyblue prose-headings:font-title
+       prose-a:text-greenemerald"
     >
       <Content components={components} />
     </article>
