@@ -37,7 +37,7 @@ const frontmatter: MarkdownInstance<Frontmatter>["frontmatter"] = {
 <BaseLayout pageTitle={entry.data.title} frontmatter={frontmatter}>
   <section class="w-full group space-y-8">
     {/* Blog details section */}
-    <div class="relative flex justify-between py-10">
+    <div class="relative flex max-sm:flex-col justify-between py-10">
       {/* Back button */}
       <a
         href="/blogs"
@@ -61,37 +61,37 @@ const frontmatter: MarkdownInstance<Frontmatter>["frontmatter"] = {
         class="absolute bottom-0
         animate-pulse
         left-1/2 -translate-x-1/2
-      h-[0.3px] bg-skyblue
+      h-[0.3px] bg-primary
       transition-all duration-1000 ease-in-out
        max-w-xl group-hover:max-w-[100px] w-full"
       ></span>
       {/* Blog details */}
       <div class="max-w-sm space-y-6 pr-4">
-        <h1 class="text-4xl font-bold font-title uppercase text-greenemerald">
+        <h1 class="text-4xl font-bold font-title uppercase text-secondary">
           {entry.data.title}
         </h1>
         <p class="text-sm">{entry.data.description}</p>
       </div>
       {/* Blog image section */}
-      <div class="flex flex-col items-end gap-3">
+      <div class="flex flex-col max-sm:mt-5 max-sm:items-start items-end gap-5">
         <img
           src={`${entry.data.ogimage}`}
           alt="ogimage"
-          class="sm:w-44 max-sm:w-20 h-16 rounded-lg
-    shadow-md group-hover:shadow-greenemerald
+          class="sm:w-44 max-sm:hidden h-16 rounded-lg
+    shadow-md group-hover:shadow-secondary
      transition-shadow duration-700 ease-out"
         />
 
         <div
           class="flex items-center justify-center
-         text-zinc-300 text-sm font-semibold
+         text-tertiary text-sm font-semibold
          transition-colors ease-in-out duration-700
-         max-sm:flex-col-reverse whitespace-nowrap gap-2"
+         max-sm:flex-row-reverse whitespace-nowrap gap-2"
         >
-          <p class="">{formattedDate(entry.data.pubDate)}</p>
-          <p class="max-sm:hidden">|</p>
+          <p class="font-title ">{formattedDate(entry.data.pubDate)}</p>
+          <span class="">|</span>
           <a
-            class="hover:underline underline-offset-4 text-greenemerald"
+            class="hover:underline font-title font-bold underline-secondary underline-offset-4 text-primary"
             target="_blank"
             rel="noopener noreferrer"
             href="https://github.com/mxnan">{entry.data.author}</a
@@ -101,9 +101,9 @@ const frontmatter: MarkdownInstance<Frontmatter>["frontmatter"] = {
     </div>
     {/* Blog content section */}
     <article
-      class="max-w-2xl max-sm:px-2 prose prose-slate prose-invert prose-sm
-       prose-headings:text-skyblue prose-headings:font-title
-       prose-a:text-greenemerald"
+      class="max-w-2xl max-sm:px-2 prose prose-tertiary prose-invert prose-sm
+       prose-headings:text-primary prose-headings:font-title
+       prose-a:text-secondary"
     >
       <Content components={components} />
     </article>

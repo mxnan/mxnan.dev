@@ -4,11 +4,12 @@ import defaultTheme from "tailwindcss/defaultTheme";
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
-   
     extend: {
       colors: {
-        skyblue: "#5465ff",
-        greenemerald: "#52B788",
+        primary: "#2BB4DE" /** style 1 */,
+        secondary: "#53CA65" /** style 2 */,
+        tertiary: "#ADB5BD" /** font color */,
+        darkbg: "#25292D" /** background color */,
       },
       fontFamily: {
         title: ["Orbitron", ...defaultTheme.fontFamily.sans],

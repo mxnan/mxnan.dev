@@ -8,8 +8,8 @@ interface BlockquoteProps extends HTMLAttributes<"blockquote"> {
 const props = Astro.props as BlockquoteProps;
 ---
 
-<blockquote {...props} class="flex items-center font-title gap-6 border-greenemerald">
-  <span class="text-4xl text-greenemerald mb-2">“</span>
-  <span class="text-xl font-semibold text-skyblue"><slot /></span>
-  <span class="text-4xl text-greenemerald">”</span>
+<blockquote {...props} class="flex items-center font-title gap-6 border-secondary">
+  <span class="text-4xl text-secondary mb-2">“</span>
+  <span class="text-xl font-semibold text-primary"><slot /></span>
+  <span class="text-4xl text-secondary">”</span>
 </blockquote>

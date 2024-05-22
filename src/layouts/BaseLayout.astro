@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import type { MarkdownInstance } from "astro";
 import type { Frontmatter } from "../constants";
-import { ViewTransitions, slide } from "astro:transitions";
+import { ViewTransitions, fade } from "astro:transitions";
 
 // Define an interface for the component props
 interface Props {
@@ -48,16 +48,16 @@ const { title, description, ogImage, author } = frontmatter ?? {};
       }
       /* Custom scrollbar */
       ::-webkit-scrollbar-thumb {
-        @apply bg-emerald-700;
+        @apply bg-secondary;
       }
       ::-webkit-scrollbar-track {
-        @apply bg-stone-200 ;
+        @apply bg-tertiary ;
       }
       ::-webkit-scrollbar {
-        @apply w-2 h-2 rounded-xl;
+        @apply w-2 h-1 rounded-xl;
       }
       ::-webkit-scrollbar-button {
-        @apply bg-sky-700 ;
+        @apply bg-primary ;
       }
       /* Custom scrollbar */
     </style>
@@ -79,11 +79,12 @@ const { title, description, ogImage, author } = frontmatter ?? {};
     <ViewTransitions />
   </head>
   <body
-    class="bg-zinc-800 text-stone-300 font-body
-   max-w-2xl mx-auto p-5 space-y-24"
+    class="bg-darkbg
+    text-tertiary font-body
+   max-w-xl mx-auto p-5 space-y-24"
   >
     <Navbar />
-    <main transition:animate={slide({ duration: 475 })} class="py-4">
+    <main transition:animate={fade({ duration: 475 })} class="py-4">
       <slot />
     </main>
     <Footer />

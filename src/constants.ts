@@ -18,8 +18,8 @@ export const SiteLinksData: [string, string][] = [
 ];
 
 export const SocialLinksData: [string, string][] = [
-  ["Twitter", "https://twitter.com/your-handle"],
-  ["GitHub", "https://github.com/your-username"],
-  ["LinkedIn", "https://linkedin.com/in/your-profile"],
+  ["Twitter", "https://twitter.com/etc_etcx"],
+  ["GitHub", "https://github.com/mxnan"],
+  
   // Add more social links as needed
 ];
