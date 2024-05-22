@@ -1,5 +1,52 @@
 ---
-
+import { SiteLinksData, SocialLinksData } from "../constants";
 ---
 
-<footer>footer</footer>
+<footer class="relative pb-24">
+  <div
+    class="relative flex-1 flex justify-center font-title text-sm gap-12 lg:gap-24"
+  >
+    <ul class="space-y-3">
+      {
+        SiteLinksData.map(([name, link]: [string, string]) => (
+          <li class=" w-min pb-4 hover:bg-[url('/icons/custom-underline.svg')] group">
+            <a href={link} class="p-1 flex gap-2 text-secondary ">
+              {name} <img src="/icons/arrow-up-right.svg" alt="arrow" class="group-hover:rotate-12" />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <ul>
+      <span
+        class="absolute left-1/2 -translate-x-1/2 h-full w-[1px] bg-primary"
+      ></span>
+    </ul>
+    <ul class="space-y-3">
+      {
+        SocialLinksData.map(([name, link]: [string, string]) => (
+          <li class=" w-min pb-4 hover:bg-[url('/icons/custom-underline.svg')] group">
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              class="p-1 flex gap-2 text-secondary "
+              href={link}
+            >
+              {name} <img src="/icons/arrow-up-right.svg" alt="arrow" class="group-hover:rotate-12" />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <span
+    class="flex items-center gap-2 font-title text-sm absolute bottom-6 left-1/2 -translate-x-1/2"
+  >
+    Developed by <a
+      class="text-secondary font-body rounded-xl py-1 px-2 border border-primary shadow-md shadow-secondary"
+      target="_blank"
+      rel="noopener noreferrer"
+      href="https://github.com/mxnan">@mxnan</a
+    >
+  </span>
+</footer>

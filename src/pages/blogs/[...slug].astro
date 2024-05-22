@@ -1,6 +1,14 @@
 ---
+import type { MarkdownInstance } from "astro";
+import type { Frontmatter } from "../../constants";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getEntry } from "astro:content";
+import { formattedDate } from "../../utils";
+
+//adding custom mdx components
+import Blockquote from "../../components/Blockquote.astro";
+export const components = { blockquote: Blockquote };
+
 //get slug
 const { slug } = Astro.params;
 // error check for slug
@@ -15,11 +23,89 @@ if (entry === undefined) {
 }
 //get content
 const { Content } = await entry.render();
+//above logic for getting content using SSR
+
+// Define the frontmatter for this page
+const frontmatter: MarkdownInstance<Frontmatter>["frontmatter"] = {
+  title: entry.data.title,
+  description: entry.data.description,
+  ogImage: entry.data.ogimage,
+  author: entry.data.author,
+};
 ---
 
-<BaseLayout>
-  <section>
-    <a href="/blogs">back</a>
-    <article><Content /></article>
+<BaseLayout pageTitle={entry.data.title} frontmatter={frontmatter}>
+  <section class="w-full group space-y-8">
+    {/* Blog details section */}
+    <div class="relative flex max-sm:flex-col justify-between py-10">
+      {/* Back button */}
+      <a
+        href="/blogs"
+        class="absolute max-lg:-left-2 max-lg:-top-8
+       -left-32 flex justify-end max-sm:justify-start
+       items-center gap-4
+       p-2 rounded-xl shadow-sm w-20"
+      >
+        <span
+          class="text-sm group-hover:opacity-0 max-sm:hidden transition-opacity ease-linear duration-500"
+          >Back
+        </span>
+        <img
+          src="/icons/arrow-up-left.svg"
+          alt="back"
+          class="group-hover:-translate-x-4 group-hover:-rotate-45 group-hover:scale-125 transition-transform ease-in-out duration-1000"
+        />
+      </a>
+      {/* animating bottom line */}
+      <span
+        class="absolute bottom-0
+        animate-pulse
+        left-1/2 -translate-x-1/2
+      h-[0.3px] bg-primary
+      transition-all duration-1000 ease-in-out
+       max-w-xl group-hover:max-w-[100px] w-full"
+      ></span>
+      {/* Blog details */}
+      <div class="max-w-sm space-y-6 pr-4">
+        <h1 class="text-4xl font-bold font-title uppercase text-secondary">
+          {entry.data.title}
+        </h1>
+        <p class="text-sm">{entry.data.description}</p>
+      </div>
+      {/* Blog image section */}
+      <div class="flex flex-col max-sm:mt-5 max-sm:items-start items-end gap-5">
+        <img
+          src={`${entry.data.ogimage}`}
+          alt="ogimage"
+          class="sm:w-44 max-sm:hidden h-16 rounded-lg
+    shadow-md group-hover:shadow-secondary
+     transition-shadow duration-700 ease-out"
+        />
+
+        <div
+          class="flex items-center justify-center
+         text-tertiary text-sm font-semibold
+         transition-colors ease-in-out duration-700
+         max-sm:flex-row-reverse whitespace-nowrap gap-2"
+        >
+          <p class="font-title ">{formattedDate(entry.data.pubDate)}</p>
+          <span class="">|</span>
+          <a
+            class="hover:underline font-title font-bold underline-secondary underline-offset-4 text-primary"
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/mxnan">{entry.data.author}</a
+          >
+        </div>
+      </div>
+    </div>
+    {/* Blog content section */}
+    <article
+      class="max-w-2xl max-sm:px-2 prose prose-tertiary prose-invert prose-sm
+       prose-headings:text-primary prose-headings:font-title
+       prose-a:text-secondary"
+    >
+      <Content components={components} />
+    </article>
   </section>
 </BaseLayout>

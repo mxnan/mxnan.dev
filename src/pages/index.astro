@@ -1,11 +1,47 @@
 ---
+// Import the necessary interfaces
+import type { MarkdownInstance } from "astro";
+import type { Frontmatter } from "../constants";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Blockquote from "../components/Blockquote.astro";
 
-
+// Define the frontmatter for this page
+const frontmatter: MarkdownInstance<Frontmatter>["frontmatter"] = {
+  title: "Home Page",
+  description: "Home page for mxnan.dev",
+  ogImage: "/og/og.jpg",
+  author: "@mxnan",
+};
 ---
 
-<BaseLayout pageTitle="Home">
- <section class="">
-  Home
- </section>
+{/* Render the BaseLayout component and pass the required props */}
+<BaseLayout pageTitle="Home" frontmatter={frontmatter}>
+  <section class="py-8">
+    <div class="flex-1 flex flex-col gap-16">
+      <h1
+        class="text-3xl sm:text-4xl font-bold tracking-wider font-title uppercase text-primary"
+      >
+        Manan Negi
+      </h1>
+      <p class="text-xl sm:text-2xl font-title text-secondary">
+        Frontend dev for hire .
+      </p>
+      <p class="text-base sm:text-lg font-title">
+        Hey, I'm Manan, a frontend dev. I enjoy making cool-looking websites. I
+        love playing with design and figuring out how to make things
+        user-friendly. Adept with designing websites through <span
+          class="text-secondary">Next.js, React, Astro, Typescript.</span
+        > Take a look at my work and let me know what you think. Catch you later!
+      </p>
+      <Blockquote>
+        <p class="text-sm sm:text-base flex">
+          Portfolio <img
+            src="/icons/ampersands.svg"
+            alt="andand"
+            class="mx-2"
+          /> blog template.
+        </p></Blockquote
+      >
+    </div>
+  </section>
 </BaseLayout>

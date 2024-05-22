@@ -3,17 +3,40 @@ import type { CollectionEntry } from "astro:content";
 import { formattedDate } from "../utils";
 
 const { blog } = Astro.props;
-
+//use blog image like this  <img src={blog.data.ogimage} alt="og-image" />
 interface Props {
   blog: CollectionEntry<"blog">;
 }
 ---
 
-<div class="h-full w-full">
-  <p>{blog.data.title}</p>
-  <p>{formattedDate(blog.data.pubDate)}</p>
-  <p>{blog.data.description}</p>
-  <p>{blog.data.author}</p>
-  <p>{blog.data.ogimage}</p>
-  <a href={`/blogs/${blog.slug}`}>link</a>
-</div>
+<a
+  class="flex justify-between items-start group
+     pt-8 pb-10 relative border-primary"
+  href={`/blogs/${blog.slug}`}
+>
+  {/* animating bottom line */}
+  <span
+    class="absolute bottom-0 left-0
+    h-[0.3px] bg-primary group-hover:translate-x-[465px]
+    transition-all duration-700 ease-out
+     max-sm:max-w-xs sm:max-w-md group-hover:max-w-[70px] w-full"
+  ></span>
+  {/* Blog details section */}
+  <div class="space-y-4 w-full max-w-md">
+    <p class="text-2xl font-title text-secondary uppercase font-semibold">{blog.data.title}</p>
+    <p class="text-sm max-sm:hidden font-light ">{blog.data.description}</p>
+  </div>
+  <div class="flex flex-col max-sm:mt-4 gap-3 justify-center items-start">
+    <img
+      src="/icons/arrow-up-right.svg"
+      alt="visit-link"
+      aria-label="visit-link"
+      class="group-hover:scale-125 group-hover:rotate-45 group-hover:translate-x-12 transition-transform ease-out duration-700"
+    />
+    <p
+      class="whitespace-nowrap max-sm:hidden text-sm group-hover:font-medium group-hover:text-base group-hover:text-secondary transition-all ease-out duration-700"
+    >
+      {formattedDate(blog.data.pubDate)}
+    </p>
+  </div>
+</a>

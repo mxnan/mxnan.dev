@@ -1,18 +1,37 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import type { Frontmatter } from "../../constants";
+import type { MarkdownInstance } from "astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import BlogCard from "../../components/BlogCard.astro";
 
+// Define the frontmatter for this page
+const frontmatter: MarkdownInstance<Frontmatter>["frontmatter"] = {
+  title: "Blogs Page",
+  description: "Blogs Page for mxnan.dev",
+  ogImage: "/og/og.jpg",
+  author: "@mxnan",
+};
+
+//get blogs and sort them by latest date
 const allBlogs: CollectionEntry<"blog">[] = (await getCollection("blog")).sort(
   (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
     b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
 
-<BaseLayout pageTitle="Blogs">
-  <section class="min-h-screen flex justify-center items-center">
-    <div class="flex flex-col gap-16">
+<BaseLayout pageTitle="Blogs" frontmatter={frontmatter}>
+  <section class="space-y-10">
+    <div class="flex flex-col max-w-sm gap-6 pb-12 ">
+      <h1 class="text-5xl max-sm:text-4xl font-bold tracking-wider font-title uppercase text-primary">
+        Blogs
+      </h1>
+      <p class="font-medium text-xl">
+        Just sharing my learning and experiences.
+      </p>
+    </div>
+    <div class="flex flex-col gap-8">
       {allBlogs.map((blog) => <BlogCard blog={blog} />)}
     </div>
   </section>
