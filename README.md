@@ -1,8 +1,8 @@
-# Astro Starter Kit: Minimal
+# Tech Blog .
 
-```sh
-npm create astro@latest -- --template minimal
-```
+> Feel free to fork and reuse .
+
+### Built only with Astro and Tailwind.
 
 
 ## 🚀 Project Structure
@@ -16,6 +16,7 @@ npm create astro@latest -- --template minimal
 │   ├── constants.ts
 │   ├── pages/
 │        └── index.astro
+│        └── 404.astro
 │        └── blogs/
 │           └── index.astro
 │           └──[...slug].astro
